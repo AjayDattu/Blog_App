@@ -29,13 +29,14 @@ jobs:
       working-directory: ./Client
       run: npm run build
 
-    # - name : upload to docker hub
-    #       uses: docker/build-push-action@v2
-    #       with:
-    #         context: ./Client
-    #         file: ./Client/Dockerfile
-    #         push: true
-    #         tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
-    #         username: ${{ secrets.DOCKER_USERNAME }}
-    #         password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      # - name: upload to docker hub
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: ./Client
+      #     file: ./Client/Dockerfile
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
 
