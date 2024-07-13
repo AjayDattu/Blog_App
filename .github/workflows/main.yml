@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Client/**'
   pull_request:
     branches:
       - main
-
+    paths:
+      - 'Client/**'
+      
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +33,7 @@ jobs:
       working-directory: ./Client
       run: npm run build
 
-      
+
       # - name: upload to docker hub
       #   uses: docker/build-push-action@v2
       #   with:
