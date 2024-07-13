@@ -11,10 +11,10 @@ on:
       - main
     paths:
       - 'Client/**'
-      
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
 
     steps:
     - name: Checkout code
