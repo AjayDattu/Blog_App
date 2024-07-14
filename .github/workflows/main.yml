@@ -57,18 +57,29 @@ jobs:
     # - name: Set up Docker Buildx
     #   uses: docker/setup-buildx-action@v3
 
-    # Step to log in to Docker Hub using credentials stored in GitHub secrets
-    - name: Login to Docker Hub
-      uses: docker/login-action@v3
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
+        image: hemanthgangula/blog-app-frontend
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    # Step to log in to Docker Hub using credentials stored in GitHub secrets
+    # - name: Login to Docker Hub
+    #   uses: docker/login-action@v3
+    #   with:
+    #     username: ${{ secrets.DOCKER_USERNAME }}
+    #     password: ${{ secrets.DOCKER_PASSWORD }}
+
     # Step to build and push the Docker image to Docker Hub
-    - name: Build and push
-      uses: docker/build-push-action@v6
-      with:
-        context: ./Client
-        file: ./Client/Dockerfile
-        push: true
-        tags: docker.io/${{ secrets.DOCKER_USERNAME }}/blog-app-frontend:latest
+    # - name: Build and push
+    #   uses: docker/build-push-action@v6
+    #   with:
+    #     context: ./Client
+    #     file: ./Client/Dockerfile
+    #     push: true
+    #     tags: docker.io/${{ secrets.DOCKER_USERNAME }}/blog-app-frontend:latest
